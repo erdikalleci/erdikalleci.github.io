@@ -35,3 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: dist/Web/wwwroot
+          clean: true
+          clean-exclude: |
+            special-file.txt
+            some/*.txt
