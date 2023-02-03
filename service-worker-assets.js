@@ -221,7 +221,7 @@
       "url": "index.html"
     },
     {
-      "hash": "sha256-za\/yFECdZl\/NDQ\/Xz+PLV2FTMBpKK69kRfHqd120afc=",
+      "hash": "sha256-UIzpzR8VhfRwgblst3elqIU1jgM1Lcsd02UpXpVsfBI=",
       "url": "manifest.json"
     },
     {
@@ -237,5 +237,5 @@
       "url": "brotliloader.min.js"
     }
   ],
-  "version": "dge6pqo7"
+  "version": "SQrNRbdU"
 };
