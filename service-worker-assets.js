@@ -205,15 +205,15 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "hash": "sha256-zUObBtHV6C6lmNVqm9yHTQ50AKATcm6o+OQ45UIkP+c=",
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4=",
+      "hash": "sha256-3PI+p2wgtKXWWai8jNcNxJmoef\/Xs8HMTL8z\/eESJWk=",
       "url": "icon-192.png"
     },
     {
-      "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
+      "hash": "sha256-sKQgMjvQ5cYe3uIX+co+77DEoeRLxLJuidmzouHDuo0=",
       "url": "icon-512.png"
     },
     {
@@ -225,7 +225,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-4Yh4OTT5TEAPNyXEzOG+n5l2HPK294WFItz4SIelj88=",
+      "hash": "sha256-GKIfMe5zagaIpuN8kuOgmc6488+M7JWnn1O2Xw495iQ=",
       "url": "sample-data\/weather.json"
     },
     {
@@ -237,5 +237,5 @@
       "url": "brotliloader.min.js"
     }
   ],
-  "version": "SQrNRbdU"
+  "version": "d5z8uD77"
 };
