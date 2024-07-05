@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "BlazorApp3": {
+    "BlazorApp": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

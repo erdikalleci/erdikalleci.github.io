@@ -1,9 +1,474 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<!-- Modal -->
+<div class="modal fade" id="araModal" tabindex="-1" role="dialog" aria-labelledby="araModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="araModalLabel">Ne arıyorsunuz?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-Welcome to your new app.
+            <div class="modal-body">
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+                <input type="text" name="ara" id="araDeger" value="" required placeholder="Aramak istediğinizi giriniz." class="form-control" />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                <button type="submit" id="araButon" class="btn btn-info">Ara</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--==========================
+    Intro Section
+  ============================-->
+<section id="intro">
+    <div class="intro-container">
+        <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+                @{
+                    Boolean first = true;
+                }
+
+                @*@foreach ($projeler as $key => $proje)*@
+                
+                <div class="carousel-item @( first ? "active" : "" )">
+                    <div class="carousel-background">
+                        <img src="/uploads/bloglar/12072020223816-1_sui4nkpfh0wevbqmb29cnq.jpeg" loading="lazy" alt="Blog">
+                    </div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>Yazılım Geliştirme Süreçleri Hakkında</h2>
+                            <p>Genel yazılım geliştirme de durumlar</p>
+                            <a href="#" class="btn-get-started scrollto">Yazıya Git</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                @*@endforeach*@
+
+            </div>
+
+            <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Önceki</span>
+            </a>
+
+            <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Sonraki</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+<!-- #intro -->
+<!--==========================
+      About Us Section
+    ============================-->
+<section id="about">
+    <div class="container">
+
+        <header class="section-header">
+            <h3>Hakkımda</h3>
+
+            <p style=\"font-style: italic;\">Bilgisayar Bilimleri, geleceğimizi, bugünümüzü şekillendirirken bunun bir parçası olmak çok keyifli. Bilginin kendisine erişim daha da kıymetli</p>
+
+        </header>
+
+        <div class="row about-cols">
+            @*@foreach ($hakkimda['Alanlar'] as $alan)*@
+
+            <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="/uploads/hakkimda/web-programlama.jpg" alt="/uploads/hakkimda/web-programlama.jpg" loading="lazy" class="img-fluid">
+                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                    </div>
+                    <h2 class="title">
+                        <a href="#">
+                            Yazılım
+                        </a>
+                    </h2>
+
+                    <p>Günümüzde olmazsa olmaz, yapacaklarımızın neredeyse hayal gücümüz ile sınırlı olduğu&nbsp; yazılım ... Neredeyse her alanda...</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="/uploads/hakkimda/hobi-ile-gelisim.jpg" alt="/uploads/hakkimda/hobi-ile-gelisim.jpg" loading="lazy" class="img-fluid">
+                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                    </div>
+                    <h2 class="title">
+                        <a href="#">
+                            Hobi ile Gelişim
+                        </a>
+                    </h2>
+                    <p>Hayatıma 3D Yazıcı, Arduino, Raspberry Pi, Drone gibi hobileri ekleyerek bir çok alanda kendimi eğlenerek geliştirmeyi amaçlıyorum.</p>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="/uploads/hakkimda/yeni-teknolojiler.jpeg" alt="/uploads/hakkimda/yeni-teknolojiler.jpeg" loading="lazy" class="img-fluid">
+                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                    </div>
+                    <h2 class="title">
+                        <a href="#">
+                            Yeni Teknolojiler
+                        </a>
+                    </h2>
+
+                    <p>Bilgisayar Bilimleri çağımızın değil önümüzdeki tüm çağların içine sızıyor. Bu değişimde yer almak ve yeni teknolojileri takip etmekten büyük keyif alıyorum.</p>
+
+                </div>
+
+            </div>
+            @*@endforeach*@
+
+        </div>
+
+    </div>
+</section>
+<!-- #about -->
+<!--==========================
+      Skills Section
+    ============================-->
+<section id="skills">
+    <div class="container">
+
+        <header class="section-header">
+            <h3>Becerilerim</h3>
+
+            <p> İlgi alanlarımızı hep genişletmek ve daha çok bilgi ile kuşanmanın bizleri daha akıllı ve güçlü yaptığı kesin. Gelişim bir süreçtir. Boş bırakmaya, ara vermeye gelmez. Bütün mesele bundan zevk alabilmekte sanırım.</p>
+
+        </header>
+
+        <div class="skills-content">
+
+            <div class="progress">
+                <div class="progress-bar bg-info" style=" background-color: #1abc9c !important;" role="progressbar" aria-valuenow="80"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="skill">.Net Core, Framework<i class="val">80%</i></span>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar bg-info" style=" background-color: #1a59bc !important;" role="progressbar" aria-valuenow="70"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="skill">Vue.JS, Nuxt.JS<i class="val">70%</i></span>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar bg-info" style="background-color: #95a5a6 !important;" role="progressbar" aria-valuenow="65"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="skill">PHP, Laravel<i class="val">65%</i></span>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar bg-info" style="background-color: #f39c12 !important;" role="progressbar" aria-valuenow="35"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="skill">Node JS<i class="val">35%</i></span>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar bg-info" style="background-color: #e74c3c !important;" role="progressbar" aria-valuenow="85"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="skill">HTML, CSS, JS<i class="val">85%</i></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!--==========================
+      PROJELER Section
+    ============================-->
+<section id="portfolio" class="section-bg">
+    <div class="container">
+
+        <header class="section-header">
+            <h3 class="section-title">PROJELER</h3>
+        </header>
+        <p class="text-center"><a href="/proje/tumu" class="btn btn-danger scrollto">Tümünü Göster</a></p>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">Hepsi</li>
+
+                    @* @foreach (var projekategori in Model.ProjeKategoriler.OrderBy(o => o.Id))
+                    {
+                        if (projekategori.Sayi != 0)
+                        {
+                            <li data-filter=".filter-@projekategori.Slug">
+                                @projekategori.Ad
+                            </li>
+                        }
+
+                    } *@
+
+                    <li data-filter=".filter-kategoriad">
+                        Kategori Ad
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio-container wow fadeInUp" data-wow-delay="0.1s">
+
+
+            @* @foreach (var projekategori in Model.ProjeKategoriler)
+            {
+                foreach (var proje in projekategori.Projeler)
+                {
+                    if (proje.Durum == "Yayınla")
+                    {
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-@projekategori.Slug">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="@proje.MiniResimYolu" class="img-fluid" loading="lazy" alt="@proje.MiniResimYolu" style="width:100%">
+                                    <a href="/image/@proje.Slug/1280/720" class="link-preview" data-lightbox="portfolio" data-title="@proje.Baslik" title="Resmi Göster"><i class="ion ion-eye"></i></a>
+                                    <a href="/proje/@proje.Slug" class="link-details" title="Detaylara Git"><i class="ion ion-android-open"></i></a>
+                                </figure>
+
+                                <div class="portfolio-info">
+                                    <h4>
+                                        <a href="/proje/@proje.Slug" title="@proje.Ad">
+                                            @(proje.Ad.Length > 20 ? proje.Ad.Substring(0, 17) + "..." : proje.Ad)
+                                        </a>
+                                    </h4>
+                                    <p>
+                                        @projekategori.Ad
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            } *@
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-kategoriad">
+                <div class="portfolio-wrap">
+                    <figure>
+                        <img src="/uploads/projeler/thumbnail/06032021234043-screenshot_1.png" class="img-fluid" loading="lazy" alt="MiniResimYolu" style="width:100%">
+                        <a href="/image/#/1280/720" class="link-preview" data-lightbox="portfolio" data-title="Baslik" title="Resmi Göster"><i class="ion ion-eye"></i></a>
+                        <a href="/proje/#" class="link-details" title="Detaylara Git"><i class="ion ion-android-open"></i></a>
+                    </figure>
+
+                    <div class="portfolio-info">
+                        <h4>
+                            <a href="/proje/#" title="Ad">
+                                Proje Adı ...
+                            </a>
+                        </h4>
+                        <p>
+                            Kısa Metin...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- #portfolio -->
+<!--==========================
+      BLOG Section
+    ============================-->
+<section id="blog" class="section-bg">
+    <div class="container">
+
+        <header class="section-header">
+            <h3 class="section-title">BLOG</h3>
+        </header>
+        <p class="text-center"><a href="/blog/tumu" class="btn btn-danger scrollto">Tümünü Göster</a></p>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul id="blog-flters">
+                    <li data-filter="*" class="filter-active">Hepsi</li>
+
+                   @*  @foreach (var kategori in Model.Kategoriler.OrderBy(o => o.Id))
+                    {
+                        if (kategori.Sayi != 0)
+                        {
+                            <li data-filter=".filter-@kategori.Slug">
+                                @kategori.Ad
+                            </li>
+                        }
+                    } *@
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row blog-container wow fadeInUp" data-wow-delay="0.1s">
+
+
+            @* @foreach (var kategori in Model.Kategoriler)
+            {
+                foreach (var blog in kategori.Bloglar)
+                {
+                    if (blog.Durum == "Yayınla")
+                    {
+                        <div class="col-lg-4 col-md-6 blog-item filter-@kategori.Slug">
+                            <div class="blog-wrap">
+                                <figure>
+                                    <img src="/image/@blog.Slug/350/240" class="img-fluid" loading="lazy" alt="@blog.MiniResimYolu" style="width:100%">
+                                    <a href="@blog.ResimYolu" class="link-preview" data-lightbox="blog" data-title="@blog.Baslik" title="Resmi Göster"><i class="ion ion-eye"></i></a>
+                                    <a href="/blog/@blog.Slug" class="link-details" title="Detaylara Git"><i class="ion ion-android-open"></i></a>
+                                </figure>
+
+                                <div class="blog-info">
+                                    <h4>
+                                        <a href="/blog/@blog.Slug" class="truncate" title="@blog.Ad">
+                                            @(blog.Ad.Length > 20 ? blog.Ad.Substring(0, 17) + "..." : blog.Ad)
+                                        </a>
+                                    </h4>
+                                    <p>
+                                        @kategori.Ad
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            } *@
+
+        </div>
+
+    </div>
+</section>
+<!-- #blog -->
+<!--==========================
+      Contact Section
+    ============================-->
+<section id="contact" class="section-bg wow fadeInUp">
+    <div class="container">
+
+        <div class="section-header">
+            <h3>İletişime Geç</h3>
+            <p>
+                İletişime geçmek için 'Mesaj Gönder'ebilir ya da diğer yolları seçebilirsiniz.
+            </p>
+        </div>
+
+        <div class="row contact-info">
+
+            <div class="col-md-4">
+                <div class="contact-address">
+                    <i class="ion-ios-location-outline"></i>
+                    <h3>Adres</h3>
+                    <address>Amasya</address>
+                    <address>Türkiye</address>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-phone">
+                    <i class="ion-ios-telephone-outline"></i>
+                    <h3>Telefon Numarası</h3>
+                    <p>
+                        <a href="tel:03582110400">
+                            0358 211 0400
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            3061
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-email">
+                    <i class="ion-ios-email-outline"></i>
+                    <h3>Eposta</h3>
+
+                    <p>
+                        <a href="mailto:erdikalleci@gmail.com">
+                            erdikalleci@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form">
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <form asp-action="Mesaj">
+                @*@csrf*@
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="AdSoyad" class="form-control" id="AdSoyad" required placeholder="Adınız Soyadınız" />
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('adsoyad') }}</strong>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="Eposta" id="Eposta" required placeholder="Epostanız" />
+                        @*@if ($errors->has('eposta'))*@
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('eposta') }}</strong>
+                        </span>
+                        @*@endif*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Konu" id="Konu" placeholder="Konu" required />
+                    @*@if ($errors->has('konu'))*@
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('konu') }}</strong>
+                    </span>
+                    @*@endif*@
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="Msj" rows="5" placeholder="Msj" required></textarea>
+                    @*@if ($errors->has('mesaj'))*@
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('mesaj') }}</strong>
+                    </span>
+                    @*@endif*@
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Lc3zKwUAAAAAGmc0YZv2crjHMhIjJTfxsRRsykI"></div>
+                </div>
+                <div class="text-center"><button type="submit">Mesaj Gönder</button></div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<!-- #contact -->

@@ -1,8 +1,8 @@
-using BlazorApp3;
+using BlazorApp;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace BlazorApp3
+namespace BlazorApp
 {
     public class Program
     {
