@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorApp3</title>
+    <title>| Erdi Kalleci</title>
+    <meta name="author" content="Erdi Kalleci">
     <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link href="BlazorApp3.styles.css" rel="stylesheet" />
+    <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />-->
+    <link href="bundles/erdikalleci.bundle.min.css" rel="stylesheet" />
+    <!--<link href="BlazorApp.styles.css" rel="stylesheet" />-->
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+
+    <!-- Favicons -->
+    <link href="logo-16-64px.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YE1EMHZXR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4YE1EMHZXR');
+    </script>
 </head>
 
 <body>
-    <div id="app">Loading...</div>
+    <div id="app">Yükleniyor...</div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
+        Bir hata oluştu.
+        <a href="" class="reload">Yeniden Yükle</a>
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script src="bundles/erdikalleci.bundle.min.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
     <script src="decode.min.js"></script>
     <script src="brotliloader.min.js"></script>

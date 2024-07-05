@@ -2,12 +2,12 @@
   "cacheBootResources": true,
   "config": [ ],
   "debugBuild": false,
-  "entryAssembly": "BlazorApp3",
+  "entryAssembly": "BlazorApp",
   "icuDataMode": 0,
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "BlazorApp3.dll": "sha256-x+krHtbfjmPSRomoIzsM6Uh+1dETDtxQ\/Ck8wdc2foM=",
+      "BlazorApp.dll": "sha256-ZzZy6q3HC5DXqz6Q4yoFVZX6U2LAQ6AZIirCfju8rr4=",
       "Microsoft.AspNetCore.Components.dll": "sha256-9WqmcBPDq46yxz1Z7IPHIKkcr7emvOhdmCdO87FcPts=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-l2G1oUgc5BXIhmsbEc61TDKPOQMjCF5p8wJsajKfnBE=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-c9Jj3AbOglZYOJpVEqaHDRX0gJ3TUeN0Z+a1cOlhXEk=",
