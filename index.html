@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#111827"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="description"
+      content="Erdi Kalleci – Bilgisayar Mühendisi. Web, bulut ve ürün geliştirme odaklı kişisel site."
+    />
+    <title>Erdi Kalleci • Bilgisayar Mühendisi</title>
+    <link rel="icon" type="image/png" href="./logo-16-256.ico" />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --bg-2: #0f172a;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --brand: #60a5fa;
+        --brand-2: #22d3ee;
+        --card: rgba(255, 255, 255, 0.06);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --glow: 0 10px 30px rgba(96, 165, 250, 0.25);
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f8fafc;
+          --bg-2: #ffffff;
+          --text: #0f172a;
+          --muted: #475569;
+          --card: rgba(15, 23, 42, 0.04);
+          --stroke: rgba(15, 23, 42, 0.12);
+          --glow: 0 10px 30px rgba(99, 102, 241, 0.18);
+        }
+      }
+
+      /* Explicit theme override via data-theme */
+      :root[data-theme="dark"] {
+        --bg: #0b1220;
+        --bg-2: #0f172a;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --card: rgba(255, 255, 255, 0.06);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --glow: 0 10px 30px rgba(96, 165, 250, 0.25);
+      }
+      :root[data-theme="light"] {
+        --bg: #f8fafc;
+        --bg-2: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --card: rgba(15, 23, 42, 0.04);
+        --stroke: rgba(15, 23, 42, 0.12);
+        --glow: 0 10px 30px rgba(99, 102, 241, 0.18);
+      }
+
+      /* Base */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(
+            1200px 600px at 10% -10%,
+            rgba(96, 165, 250, 0.15),
+            transparent 40%
+          ),
+          radial-gradient(
+            1000px 500px at 90% 110%,
+            rgba(34, 211, 238, 0.12),
+            transparent 45%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg-2));
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Container */
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+        display: grid;
+        gap: 28px;
+      }
+
+      /* Header with theme toggle */
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+      .brand .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--glow);
+      }
+      .brand .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .brand strong {
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+      .toggle {
+        appearance: none;
+        border: 1px solid var(--stroke);
+        background: var(--card);
+        color: inherit;
+        padding: 10px 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.15s ease, background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .toggle:hover {
+        transform: translateY(-1px);
+      }
+
+      /* Card */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 18px;
+        padding: 28px;
+        backdrop-filter: saturate(140%) blur(8px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        align-items: center;
+        gap: 20px;
+      }
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--glow);
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .hero h1 {
+        margin: 0 0 6px;
+        font-size: 28px;
+      }
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* Links */
+      .links {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @media (max-width: 560px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .links {
+          grid-template-columns: 1fr;
+        }
+      }
+      .link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.12s ease, background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .link:hover {
+        transform: translateY(-1px);
+      }
+      .link svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* About + chips */
+      .about {
+        display: grid;
+        gap: 10px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        background: var(--card);
+        border: 1px dashed var(--stroke);
+        color: var(--muted);
+      }
+
+      /* Footer */
+      footer {
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+      .sep {
+        opacity: 0.35;
+        margin: 0 8px;
+      }
+
+      .accent {
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" id="brand-link" href="#" aria-label="Ana sayfa">
+          <span class="logo"
+            ><img src="./logo-16-256.ico" alt="EK" width="36" height="36"
+          /></span>
+          <strong>erdikalleci.com</strong>
+        </a>
+        <div class="actions">
+          <button class="toggle" id="lang-toggle" aria-label="Dili değiştir">
+            🌐 TR
+          </button>
+          <button class="toggle" id="theme-toggle" aria-label="Tema değiştir">
+            🌙 Tema
+          </button>
+        </div>
+      </header>
+
+      <section class="card hero" aria-labelledby="ad">
+        <div class="avatar" aria-hidden="true">
+          <img src="./logo-16-256.ico" alt="Erdi Kalleci" />
+        </div>
+        <div>
+          <h1 id="ad">Merhaba, <span class="accent">Erdi Kalleci</span></h1>
+          <p id="role">Bilgisayar Mühendisi • Full‑Stack Developer</p>
+        </div>
+      </section>
+
+      <section class="card about" aria-labelledby="hakkimda">
+        <h2 id="hakkimda" style="margin: 0 0 6px">Kısaca</h2>
+        <p id="about-text">
+          Ürün odaklı bir Full‑Stack Developer ve Bilgisayar Mühendisiyim.
+          Modern frontend teknolojileri, ölçeklenebilir backend tasarımı ve
+          bulut tabanlı mimarilerle kullanıcıya hızlı ve güvenilir deneyimler
+          sunarım. Temiz kod, otomasyon ve geliştirici deneyimi benim için
+          öncelik.
+        </p>
+        <div class="chips" aria-label="Odak alanlarım">
+          <span class="chip">TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">.NET</span>
+          <span class="chip">Docker</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Bulut</span>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="baglantilar">
+        <h2 id="baglantilar" style="margin: 0 0 12px">Bağlantılar</h2>
+        <div class="links">
+          <a
+            class="link"
+            href="https://github.com/erdikalleci"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.55 2.33 1.1 2.9.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05.8-.23 1.65-.35 2.5-.36.85 0 1.7.12 2.5.36 1.9-1.32 2.74-1.05 2.74-1.05.56 1.4.21 2.44.11 2.7.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .26.18.58.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a
+            class="link"
+            href="https://www.linkedin.com/in/erdikalleci"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M6.94 6.5a2.44 2.44 0 1 1 0-4.88 2.44 2.44 0 0 1 0 4.88ZM4.72 8.39h4.44V22H4.72V8.39Zm7.18 0h4.26v1.86h.06c.59-1.11 2.03-2.28 4.18-2.28 4.48 0 5.31 2.95 5.31 6.78V22h-4.44v-6.03c0-1.44-.03-3.3-2.01-3.3-2.02 0-2.33 1.58-2.33 3.2V22h-4.44V8.39Z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            class="link"
+            href="https://twitter.com/ErdiKalleci"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitter"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M13.09 10.55 20.64 2h-1.77l-6.54 7.45L7.03 2H2.02l8.01 11.35L2.02 22h1.77l6.99-7.95L16.97 22h5.01l-8.89-11.45Zm-2.48 2.82-.81-1.11L4.32 3.3h2.31l4.39 6.02.81 1.11 5.75 7.87h-2.31l-5.66-7.83Z"
+              />
+            </svg>
+            Twitter
+          </a>
+          <a
+            id="email-link"
+            class="link"
+            href="mailto:destek@erdikalleci.com"
+            aria-label="E-posta gönder"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 3.2v.27l8 5.33 8-5.33V7.2L12 12.53 4 7.2Z"
+              />
+            </svg>
+            <span id="email-text">E‑posta Gönder</span>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <span>© <span id="yil"></span> Erdi Kalleci</span>
+        <span class="sep">•</span>
+        <span id="tagline">Basit, hızlı, erişilebilir.</span>
+      </footer>
+    </div>
+
+    <script>
+      // Theme + i18n
+      const root = document.documentElement;
+      const themeKey = "theme-preference";
+      const langKey = "lang-preference";
+      const themeBtn = document.getElementById("theme-toggle");
+      const langBtn = document.getElementById("lang-toggle");
+      const mqDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const getTheme = () => localStorage.getItem(themeKey) || "system";
+      const setTheme = (v) => localStorage.setItem(themeKey, v);
+      const getLang = () => localStorage.getItem(langKey) || "tr";
+      const setLang = (v) => localStorage.setItem(langKey, v);
+
+      const i18n = {
+        tr: {
+          homeAria: "Ana sayfa",
+          themeLight: "Açık",
+          themeDark: "Koyu",
+          themeSystem: "Sistem",
+          themeWord: "Tema",
+          langLabel: "TR",
+          hello: "Merhaba, ben",
+          role: "Bilgisayar Mühendisi • Full‑Stack Developer",
+          aboutTitle: "Kısaca",
+          aboutText:
+            "Ürün odaklı bir Full‑Stack Developer ve Bilgisayar Mühendisiyim. Modern frontend teknolojileri, ölçeklenebilir backend tasarımı ve bulut tabanlı mimarilerle kullanıcıya hızlı ve güvenilir deneyimler sunarım. Temiz kod, otomasyon ve geliştirici deneyimi benim için öncelik.",
+          linksTitle: "Bağlantılar",
+          email: "E‑posta Gönder",
+          emailAria: "E-posta gönder",
+          tagline: "Basit, hızlı, erişilebilir.",
+          title: "Erdi Kalleci • Bilgisayar Mühendisi",
+          description:
+            "Erdi Kalleci – Bilgisayar Mühendisi ve Full‑Stack Developer. Web, bulut ve ürün geliştirme odaklı kişisel site.",
+        },
+        en: {
+          homeAria: "Home",
+          themeLight: "Light",
+          themeDark: "Dark",
+          themeSystem: "System",
+          themeWord: "Theme",
+          langLabel: "EN",
+          hello: "Hi, I'm",
+          role: "Computer Engineer • Full‑Stack Developer",
+          aboutTitle: "About",
+          aboutText:
+            "I am a product‑oriented Full‑Stack Developer and Computer Engineer. I build fast and reliable experiences using modern front‑end, scalable back‑end design and cloud architectures. Clean code, automation and developer experience are my priorities.",
+          linksTitle: "Links",
+          email: "Send Email",
+          emailAria: "Send email",
+          tagline: "Simple, fast, accessible.",
+          title: "Erdi Kalleci • Computer Engineer",
+          description:
+            "Erdi Kalleci – Computer Engineer and Full‑Stack Developer. Personal site focused on web, cloud and product development.",
+        },
+      };
+
+      function updateThemeMeta(isDark) {
+        const metaDark = document.querySelector(
+          'meta[name="theme-color"][media*="dark"]'
+        );
+        const metaLight = document.querySelector(
+          'meta[name="theme-color"][media*="light"]'
+        );
+        if (metaDark)
+          metaDark.setAttribute("content", isDark ? "#0b1220" : "#111827");
+        if (metaLight)
+          metaLight.setAttribute("content", isDark ? "#f3f4f6" : "#ffffff");
+      }
+
+      function setThemeButtonLabel() {
+        const t = getTheme();
+        const lang = getLang();
+        const dict = i18n[lang];
+        const label =
+          t === "light"
+            ? dict.themeLight
+            : t === "dark"
+            ? dict.themeDark
+            : dict.themeSystem;
+        const icon = t === "light" ? "☀️" : t === "dark" ? "🌙" : "🌗";
+        themeBtn.textContent = `${icon} ${dict.themeWord} (${label})`;
+      }
+
+      function applyTheme() {
+        const pref = getTheme();
+        if (pref === "system") {
+          root.removeAttribute("data-theme");
+        } else {
+          root.dataset.theme = pref;
+        }
+        const dark = pref === "dark" || (pref === "system" && mqDark.matches);
+        updateThemeMeta(dark);
+        setThemeButtonLabel();
+      }
+
+      function applyI18n() {
+        const lang = getLang();
+        const dict = i18n[lang];
+        document.documentElement.lang = lang;
+        // Title + meta
+        document.title = dict.title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", dict.description);
+        // Header
+        const brandLink = document.getElementById("brand-link");
+        if (brandLink) brandLink.setAttribute("aria-label", dict.homeAria);
+        // Lang toggle
+        langBtn.textContent = `🌐 ${dict.langLabel}`;
+        // Hero
+        const name = "Erdi Kalleci";
+        document.getElementById(
+          "ad"
+        ).innerHTML = `${dict.hello} <span class="accent">${name}</span>`;
+        document.getElementById("role").textContent = dict.role;
+        // About
+        document.getElementById("hakkimda").textContent = dict.aboutTitle;
+        document.getElementById("about-text").textContent = dict.aboutText;
+        // Links
+        document.getElementById("baglantilar").textContent = dict.linksTitle;
+        document.getElementById("email-text").textContent = dict.email;
+        document
+          .getElementById("email-link")
+          .setAttribute("aria-label", dict.emailAria);
+        // Footer
+        document.getElementById("tagline").textContent = dict.tagline;
+        setThemeButtonLabel();
+      }
+
+      // Events
+      themeBtn.addEventListener("click", () => {
+        const cur = getTheme();
+        const next =
+          cur === "light" ? "dark" : cur === "dark" ? "system" : "light";
+        setTheme(next);
+        applyTheme();
+      });
+      langBtn.addEventListener("click", () => {
+        const next = getLang() === "tr" ? "en" : "tr";
+        setLang(next);
+        applyI18n();
+      });
+      mqDark.addEventListener("change", applyTheme);
+
+      // Init
+      applyTheme();
+      applyI18n();
+      document.getElementById("yil").textContent = new Date().getFullYear();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Erdi Kalleci",
+        "url": "https://erdikalleci.com",
+        "jobTitle": "Bilgisayar Mühendisi",
+        "sameAs": [
+          "https://github.com/erdikalleci",
+          "https://www.linkedin.com/in/erdikalleci",
+          "https://twitter.com/ErdiKalleci"
+        ]
+      }
+    </script>
+  </body>
+</html>
